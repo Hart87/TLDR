@@ -2,6 +2,7 @@ package reddit
 
 import (
     "testing"
+	"fmt"
 )
 
 func TestHelloMatch(t *testing.T ) {
@@ -20,4 +21,22 @@ func TestHelloNotNull(t *testing.T) {
 		t.Errorf("Reddit hello function returned an empty string. supposed to be %v", result)
 	}
 
+}
+
+func TestYmlElementRetrievalInt(t *testing.T) {
+
+	result := GetElementInt("num")
+	fmt.Println(result)
+	if result != 33567 {
+		t.Errorf("Reddit element.yml file is not being parsed properly")
+	}
+}
+
+func TestYmlElementRetrievalString(t *testing.T) {
+
+	result := GetElementString("post")
+	fmt.Println(result)
+	if result != "a post from an element" {
+		t.Errorf("Reddit element.yml file is not being parsed properly")
+	}
 }

@@ -7,6 +7,7 @@ replace github.com/hart87/tldr/twitter => ./twitter
 require (
 	github.com/hart87/tldr/reddit v0.0.0-00010101000000-000000000000
 	github.com/hart87/tldr/twitter v0.0.0-00010101000000-000000000000
+	github.com/spf13/viper v1.7.1 // indirect
 )
 
 replace github.com/hart87/tldr/reddit => ./reddit

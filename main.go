@@ -41,6 +41,7 @@ func main () {
         fmt.Println("  tail:", redditCmd.Args())
 		response := reddit.RedditHello()
 		fmt.Println(response)
+
     default:
         fmt.Println("expected 'twitter' or 'reddit' subcommands")
         os.Exit(1)

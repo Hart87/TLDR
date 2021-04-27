@@ -2,6 +2,7 @@ package twitter
 
 import (
     "testing"
+	"fmt"
 )
 
 func TestHelloMatch(t *testing.T ) {
@@ -20,4 +21,22 @@ func TestHelloNotNull(t *testing.T) {
 		t.Errorf("Twitter hello function returned an empty string. supposed to be %v", result)
 	}
 
+}
+
+func TestYmlElementRetrievalInt(t *testing.T) {
+
+	result := GetElementInt("num")
+	fmt.Println(result)
+	if result != 42069 {
+		t.Errorf("Twitter element.yml file is not being parsed properly")
+	}
+}
+
+func TestYmlElementRetrievalString(t *testing.T) {
+
+	result := GetElementString("post")
+	fmt.Println(result)
+	if result != "a post from a Twitter element" {
+		t.Errorf("Twitter element.yml file is not being parsed properly")
+	}
 }
