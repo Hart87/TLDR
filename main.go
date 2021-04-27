@@ -32,13 +32,15 @@ func main () {
         fmt.Println("  enable:", *twitterCmdEnable)
         fmt.Println("  name:", *twitterSearchKey)
         fmt.Println("  tail:", twitterCmd.Args())
-		twitter.TwitterHello()
+		response := twitter.TwitterHello()
+		fmt.Println(response)
     case "reddit":
         redditCmd.Parse(os.Args[2:])
         fmt.Println("subcommand 'reddit'")
         fmt.Println("  level:", *redditLevel)
         fmt.Println("  tail:", redditCmd.Args())
-		reddit.RedditHello()
+		response := reddit.RedditHello()
+		fmt.Println(response)
     default:
         fmt.Println("expected 'twitter' or 'reddit' subcommands")
         os.Exit(1)

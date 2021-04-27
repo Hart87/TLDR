@@ -1,9 +1,9 @@
 package reddit
 
 import (
-	"fmt"
+	
 )
 
-func RedditHello() {
-	fmt.Println("Doing stuff from reddit...")
+func RedditHello() string {
+	return "Doing stuff from reddit..."
 }
