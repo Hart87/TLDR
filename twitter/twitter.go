@@ -1,9 +1,9 @@
 package twitter
 
 import (
-	"fmt"
+	
 )
 
-func TwitterHello() {
-	fmt.Println("Doing stuff from twitter...")
+func TwitterHello() string {
+	return "Doing stuff from twitter..."
 }
