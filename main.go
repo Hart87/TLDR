@@ -5,8 +5,7 @@ import (
 	"flag"
 	"os"
 
-	"github.com/hart87/tldr/twitter"
-	"github.com/hart87/tldr/reddit"
+	"github.com/hart87/tldr/aggregator"
 )
 
 func main () {
@@ -32,15 +31,17 @@ func main () {
         fmt.Println("  enable:", *twitterCmdEnable)
         fmt.Println("  name:", *twitterSearchKey)
         fmt.Println("  tail:", twitterCmd.Args())
-		response := twitter.TwitterHello()
-		fmt.Println(response)
+        s := aggregator.GetElementSliceString("urls.twitter")
+        t := aggregator.GetElementString("app")
+        fmt.Println(s)
+        fmt.Println(t)
     case "reddit":
         redditCmd.Parse(os.Args[2:])
         fmt.Println("subcommand 'reddit'")
         fmt.Println("  level:", *redditLevel)
         fmt.Println("  tail:", redditCmd.Args())
-		response := reddit.RedditHello()
-		fmt.Println(response)
+        s := aggregator.GetElementSliceString("urls.reddit")
+		fmt.Println(s)
 
     default:
         fmt.Println("expected 'twitter' or 'reddit' subcommands")

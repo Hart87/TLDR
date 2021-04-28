@@ -1,0 +1,11 @@
+#Twitter pages to search for a key
+app: "TLDR"
+urls:
+  twitter:
+    - "https://twitter.com/elonmusk"
+    - "https://twitter.com/elonmusk/with_replies"
+    - "https://twitter.com/elonmusk/likes"
+  reddit:
+    - "https://www.reddit.com/r/wallstreetbets/new"
+    - "https://www.reddit.com/r/wallstreetbets/hot"
+    - "https://www.reddit.com/r/wallstreetbets/top"
