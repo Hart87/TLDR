@@ -5,21 +5,19 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strings"
-
-	//"github.com/spf13/viper"
+	"strconv"
 )
 
-func Recon (key string) {
-	result := ScrapeStuff("https://finance.yahoo.com/")
-	//fmt.Println(result)
-	fmt.Println(strings.Contains(result, key))
-	fmt.Println(strings.Count(result, key))
-	
+func Iterate(sliceOfPages []string, key string) {
+	fmt.Println("Searching for key : " + key)
+	for i := 0; i < len(sliceOfPages); i++ {
+		response := Scrape(sliceOfPages[i])
+		result := ResponseAnalyzer(response, key)
+		fmt.Println(sliceOfPages[i] + ": " + result)
+	}
 }
 
-func ScrapeStuff(urlString string) string {
-
-	url := urlString
+func Scrape(url string) string {
 	//fmt.Printf("HTML code of %s ...\n", url)
 	resp, err := http.Get(url)
 	// handle the error if there bitcoin one
@@ -38,3 +36,10 @@ func ScrapeStuff(urlString string) string {
 	s := string(html)
 	return s
 }
+
+func ResponseAnalyzer(response string, key string) string {
+	contains := strings.Contains(response, key)
+	count := strings.Count(response, key)
+	return "Contains : " + strconv.FormatBool(contains) + ". " + "Count : " + strconv.Itoa(count)
+}
+

@@ -6,7 +6,7 @@ import (
 
 func TestScrapeResponseString(t *testing.T) {
 
-	result := ScrapeStuff("https://finance.yahoo.com/")
+	result := Scrape("https://finance.yahoo.com/")
 	if result == "" {
 		t.Errorf("Nothing scraped from URL")
 	}
