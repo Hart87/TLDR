@@ -13,7 +13,7 @@ func main () {
 
 	//Subcommands
 	twitterCmd := flag.NewFlagSet("twitter", flag.ExitOnError)
-    twitterSearchKey := twitterCmd.String("key", "", "Whaty you're searching for")
+    twitterSearchKey := twitterCmd.String("key", "", "What you're searching for")
     twitterCmdEnable := twitterCmd.Bool("enable", false, "A boolean value to enable something guy.")
     
 
@@ -21,7 +21,13 @@ func main () {
     RedditSearchKey := redditCmd.String("key", "", "Whaty you're searching for")
     redditLevel := redditCmd.Int("level", 0, "how high or low a level is")
 
-	if len(os.Args) < 2 {
+    hackerNewsCmd := flag.NewFlagSet("hacker News", flag.ExitOnError)
+    hackerNewsSearchKey := hackerNewsCmd.String("key", "", "What you're searching for")
+
+    allCmd := flag.NewFlagSet("all", flag.ExitOnError)
+    AllSearchKey := allCmd.String("key", "", "What you're searching for")
+
+	if len(os.Args) < 4 {
         fmt.Println("expected 'twitter' or 'reddit' subcommands")
         os.Exit(1)
     }
@@ -40,11 +46,19 @@ func main () {
         aggregator.Iterate(s, *RedditSearchKey)
         fmt.Println("  level:", *redditLevel)
         fmt.Println("  tail:", redditCmd.Args())
-        
-		
 
+    case "hackernews":
+        hackerNewsCmd.Parse(os.Args[2:])
+        s := aggregator.GetElementSliceString("urls.hackernews")
+        aggregator.Iterate(s, *hackerNewsSearchKey)
+
+    case "all":
+        allCmd.Parse(os.Args[2:])
+        s := aggregator.GetElementSliceString("urls.all")
+        aggregator.Iterate(s, *AllSearchKey)
+        
     default:
-        fmt.Println("expected 'twitter' or 'reddit' subcommands")
+        fmt.Println("expected 'twitter', 'reddit', hackernews, or all subcommands")
         os.Exit(1)
 	}
 }
