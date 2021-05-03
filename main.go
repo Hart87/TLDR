@@ -9,7 +9,11 @@ import (
 )
 
 func main () {
-	fmt.Println("T L D R ...")
+    fmt.Println("---------   ---      ----     --- ---")
+    fmt.Println("---   ---   ---      -- --    ---  -- ")
+    fmt.Println("   ---      ---      -- ---   --- - --")
+    fmt.Println("   ---      -----    -- --    ---    --") 
+    fmt.Println("   ---      -----    ----     ---    --")
 
 	//Subcommands
 	twitterCmd := flag.NewFlagSet("twitter", flag.ExitOnError)
@@ -58,7 +62,7 @@ func main () {
         aggregator.Iterate(s, *AllSearchKey)
         
     default:
-        fmt.Println("expected 'twitter', 'reddit', hackernews, or all subcommands")
+        fmt.Println("expected 'twitter', 'reddit', 'hackernews', or 'all' subcommands")
         os.Exit(1)
 	}
 }

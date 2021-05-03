@@ -1,10 +1,12 @@
-#Twitter pages to search for a key
 app: "TLDR"
 urls:
   twitter:
     - "https://twitter.com/elonmusk"
     - "https://twitter.com/elonmusk/with_replies"
     - "https://twitter.com/elonmusk/likes"
+    - "https://twitter.com/techlead"
+    - "https://twitter.com/techlead/with_replies"
+    - "https://twitter.com/techlead/likes"
   reddit:
     - "https://www.reddit.com/r/wallstreetbets/new"
     - "https://www.reddit.com/r/wallstreetbets/hot"
@@ -19,6 +21,9 @@ urls:
     - "https://twitter.com/elonmusk"
     - "https://twitter.com/elonmusk/with_replies"
     - "https://twitter.com/elonmusk/likes"
+    - "https://twitter.com/techlead"
+    - "https://twitter.com/techlead/with_replies"
+    - "https://twitter.com/techlead/likes"
     - "https://www.reddit.com/r/wallstreetbets/new"
     - "https://www.reddit.com/r/wallstreetbets/hot"
     - "https://www.reddit.com/r/wallstreetbets/top"

@@ -13,7 +13,7 @@ func Iterate(sliceOfPages []string, key string) {
 	for i := 0; i < len(sliceOfPages); i++ {
 		response := Scrape(sliceOfPages[i])
 		result := ResponseAnalyzer(response, key)
-		fmt.Println(sliceOfPages[i] + ": " + result)
+		fmt.Println(sliceOfPages[i] + " : " + result)
 	}
 }
 
